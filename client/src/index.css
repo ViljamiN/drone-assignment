@@ -13,6 +13,8 @@ code {
     monospace;
 }
 
+p { margin-top: -12px; }
+
 .system-container {
   box-sizing: border-box;
   display: grid;

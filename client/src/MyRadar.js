@@ -20,15 +20,16 @@ class MyRadar extends React.Component {
     p.draw = function() {
       p.background(0, 0, 0, 255);
       let speed = p.frameCount/30;
-      let px = 100 * p.cos(speed);
-      let py = 100 * p.sin(speed);  
+      let px = 250 * p.cos(speed);
+      let py = 250 * p.sin(speed);  
       p.strokeWeight(3);
-      p.stroke(0, 255, 0);
       p.noFill();
-      p.ellipse(centerX, centerY, 5);
+      p.stroke(255, 0, 0);
       p.ellipse(centerX, centerY, radarWindow/2.5);
-      p.ellipse(centerX, centerY, radarWindow/4);
-      p.ellipse(centerX, centerY, radarWindow/10);
+      p.stroke(0, 255, 0);
+      p.ellipse(centerX, centerY, 5);
+      p.ellipse(centerX, centerY, radarWindow);
+      p.ellipse(centerX, centerY, radarWindow/5);
       p.square(0, 0, radarWindow)
       var radarline = [{x: centerX-px, y: centerY-py}, {x: centerX+px, y: centerY+py}];
       p.line(radarline[0].x, radarline[0].y, radarline[1].x,radarline[1].y);
@@ -101,6 +102,7 @@ class MyRadar extends React.Component {
             <p>System Name: GUARDB1RD</p>
             <p>Total violations in the last 10 minutes: {document.getElementsByClassName("single-user").length}</p>
             <p id="closest-distance-p">Closest distance to the nest in the last 10 minutes: NaN</p>
+            <p>Red circles show last detected positions of violators.</p>
           </div>
           <div ref={ref => this.container = ref} className="canvas-container"></div>
         </div>
