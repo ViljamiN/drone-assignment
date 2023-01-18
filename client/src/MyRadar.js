@@ -32,7 +32,7 @@ class MyRadar extends React.Component {
       p.square(0, 0, radarWindow)
       var radarline = [{x: centerX-px, y: centerY-py}, {x: centerX+px, y: centerY+py}];
       p.line(radarline[0].x, radarline[0].y, radarline[1].x,radarline[1].y);
-      
+
       // Loop through violators, draw them on the radar and update their information on screen
       for (const sn in this.violators) {
 

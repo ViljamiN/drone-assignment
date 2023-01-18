@@ -4,6 +4,7 @@ import MyRadar from './MyRadar';
 // Create an empty object to store the violators and a map to store the timers
 const violators = {};
 const timers = new Map();
+const limitRadius = 100000;
 
 // Fetch the user information from the server
 async function getUserInfo(serialNumber) {
@@ -22,6 +23,7 @@ async function updateData(SN, distance, x, y, timeNow) {
   updateDataPoint(SN, distance, result.firstName + " " + result.lastName, result.email, result.phoneNumber, x, y, timeNow);
 }
 
+// Update the data point
 function updateDataPoint(sn, distance, name, email, phone, x, y, timeNow) {
   if (violators[sn]) {
     violators[sn].timeNow = timeNow;
@@ -44,7 +46,7 @@ function updateDataPoint(sn, distance, name, email, phone, x, y, timeNow) {
   timers.set(sn, timer);
 }
 
-
+// Main App function
 function App() {
 
   const [xmlData, setXmlData] = useState(null);
@@ -79,7 +81,7 @@ function App() {
         var distance = Math.sqrt(Math.pow((positionXElement - 250000), 2) + Math.pow((positionYElement - 250000), 2));
         
         // Check if the <drone> element is within the restricted circle
-        if (distance < 100000) {
+        if (distance < limitRadius) {
           // If yes, update the data including the current time
           var today = new Date();
           var timeNow = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
@@ -96,48 +98,4 @@ function App() {
   );
 }
 
-
 export default App;
-
-
-  //safekeeping
-  //const [serverSideDroneData, setServerSideDroneData] = useState([{}]);
-  //const [serverSideUserData, setServerSideUserData] = useState([{}]);
-
-  //in the useEffect, we get both users and drones from the server
-  //useEffect(() => {
-  //  fetchDrones();
-  //  fetchUsers();
-  //}, []);
-
-  //const fetchDrones = () => {
-  //  fetch('/drones')
-  //  .then(res => res.json())
-  //  .then(data => setServerSideDroneData(data));
-  //}
-
-  //const fetchUsers = () => {
-  //  fetch('/users')
-  //  .then(res => res.json())
-  //  .then(data => setServerSideUserData(data));
-  //}
-
-  //return (
-  //  <div>
-  //    {(typeof serverSideDroneData.drones === 'undefined') ? (
-  //      <p>Loading...</p>
-  //    ) : (
-  //      serverSideDroneData.drones.map((drone, i) => (
-  //        <p key={i}>{drone}</p>
-  //      ))
-  //    )}
-  //    {(typeof serverSideUserData.users === 'undefined') ? (
-  //      <p>Loading...</p>
-  //    ) : (
-  //      serverSideUserData.users.map((user, i) => (
-  //        <p key={i}>{user}</p>
-  //      ))
-  //    )}
-  //  </div>
-  //);
-//}

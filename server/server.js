@@ -5,22 +5,22 @@ const express = require("express")
 const droneRoute = require("./routes/drones.js")
 const pilotRoute = require("./routes/pilots.js")
 
-
+// Setting the port
 const PORT = process.env.PORT || 3001;
 
-// Creating express server
+// Creating the express server
 const app = express()
 
-// Handling routes request
+// Handling route requests
 app.use("/drones", droneRoute)
 app.use("/pilots", pilotRoute)
 
 app.listen(PORT, () => { console.log(`Server listening on ${PORT}`) })
 
-// Have Node serve the files for our built React app
+// Have Node serve the files for the built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-// All other GET requests not handled before will return our React app
+// All GET requests will return the React app
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
