@@ -5,6 +5,9 @@ const express = require("express")
 const droneRoute = require("./routes/drones.js")
 const pilotRoute = require("./routes/pilots.js")
 
+
+const PORT = process.env.PORT || 3001;
+
 // Creating express server
 const app = express()
 
@@ -12,7 +15,7 @@ const app = express()
 app.use("/drones", droneRoute)
 app.use("/pilots", pilotRoute)
 
-app.listen(3001, () => { console.log("Server is Running at port 5000") })
+app.listen(PORT, () => { console.log(`Server listening on ${PORT}`) })
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
