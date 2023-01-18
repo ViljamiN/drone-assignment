@@ -1,0 +1,25 @@
+{
+  "name": "droneassignment",
+  "version": "1.0.0",
+  "description": "This is an assignment submission for Reaktor Developer Trainee position. It is built using React and p5.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js",
+    "build": "cd client && npm install && npm run build",
+    "dev": "nodemon server/server.js"
+  },
+  "engines": {
+    "node": "v18.12.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViljamiN/DroneAssignment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViljamiN/DroneAssignment/issues"
+  },
+  "homepage": "https://github.com/ViljamiN/DroneAssignment#readme"
+}
