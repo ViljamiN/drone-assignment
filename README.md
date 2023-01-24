@@ -5,3 +5,7 @@ This is an assignment submission for Reaktor Developer Trainee position. It is b
 ### `Functionality`
 
 This web application is built to list all the pilots who recently violated the NDZ perimeter of the endangered Monadikuikka nest.
+
+### `Software stack`
+
+This web application is built using Node for the backend and React + p5 libraries for the front end.
