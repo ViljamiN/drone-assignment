@@ -8,4 +8,4 @@ This web application is built to list all the pilots who recently violated the N
 
 ### `Software stack`
 
-This web application is built using Node for the backend and React + p5 libraries for the front end.
+This web application is built using Node for the back end and React + p5 libraries for the front end.
