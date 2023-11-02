@@ -1,5 +1,7 @@
 ## Dronetracker
 
+Status: Offline 🔴
+
 This is an assignment submission for Reaktor Developer Trainee position. It is built using React and Node.
 
 ### `Functionality`
